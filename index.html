@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IFEANYICHUKWU FARM LTD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== GLOBAL ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #222;
+      line-height: 1.7;
+      background: #f8faff;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #0a0a23, #2d6a4f);
+      color: white;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #2d6a4f, #0a0a23);
+      transform: translateY(-3px);
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      background: #0a0a23;
+      color: white;
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.25);
+    }
+    .nav-container {
+      width: 90%; max-width: 1300px;
+      margin: auto; display: flex;
+      justify-content: space-between; align-items: center;
+      padding: 18px 0;
+    }
+    .logo {
+      font-size: 20px; font-weight: bold;
+      letter-spacing: 1.5px;
+      color: gold;
+    }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav ul li a {
+      color: #fff; font-weight: 500;
+      padding: 8px 14px; border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav ul li a:hover { background: #2d6a4f; }
+
+    /* ===== HERO ===== */
+    #hero {
+      background: url('./IMG-20250904-WA0059.jpg') no-repeat center/cover;
+      min-height: 90vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; color: white; padding: 0 15px;
+      position: relative;
+    }
+    #hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: rgba(0,0,0,0.6);
+      animation: heroFade 6s infinite alternate;
+    }
+    @keyframes heroFade {
+      from { background: rgba(0,0,0,0.6); }
+      to { background: rgba(0,0,0,0.4); }
+    }
+    #hero h1, #hero p, #hero a { position: relative; z-index: 1; }
+    #hero h1 {
+      font-size: 54px;
+      margin-bottom: 20px;
+      color: gold;
+      text-transform: uppercase;
+      animation: fadeInDown 1.5s ease-out;
+    }
+    #hero p {
+      font-size: 20px; max-width: 700px; margin: auto;
+      margin-bottom: 25px;
+      animation: fadeInUp 2s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SERVICES ===== */
+    #services {
+      background: #fff; padding: 90px 20px; text-align: center;
+    }
+    #services h2 {
+      font-size: 34px; margin-bottom: 15px;
+      color: #2d6a4f;
+    }
+    #services p { color: #444; max-width: 650px; margin: auto; margin-bottom: 40px; }
+    .service-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px; padding: 25px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+    .card img {
+      width: 100%; height: 200px; 
+      object-fit: cover;
+      border-radius: 10px; margin-bottom: 15px;
+    }
+    .card h3 { color: #0a0a23; margin-bottom: 10px; }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: #eef3ff; padding: 90px 20px;
+    }
+    #contact h2 { text-align: center; margin-bottom: 30px; color: #2d6a4f; }
+    .contact-container {
+      display: flex; flex-wrap: wrap;
+      gap: 40px; max-width: 1100px; margin: auto;
+    }
+    .contact-info {
+      flex: 1; min-width: 260px;
+      background: white; padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .contact-info h3 { margin-bottom: 15px; }
+    .contact-info p { margin-bottom: 12px; font-size: 15px; }
+    .contact-form {
+      flex: 1; min-width: 300px;
+      background: white; padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%; padding: 12px;
+      margin-bottom: 15px; border: 1px solid #ccc;
+      border-radius: 8px; font-size: 15px;
+    }
+    .contact-form button {
+      width: 100%; background: #2d6a4f; color: white;
+      border: none; padding: 14px; font-size: 15px;
+      border-radius: 8px; cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover { background: #0a0a23; }
+
+    /* ===== EMPLOYMENT ===== */
+    #employment {
+      background: #fff; padding: 90px 20px; text-align: center;
+    }
+    #employment h2 { color: #2d6a4f; margin-bottom: 15px; }
+    #employment p { max-width: 650px; margin: auto; margin-bottom: 25px; }
+    .employment-form {
+      max-width: 650px; margin: auto;
+      background: #f9f9ff; padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+    .employment-form label { display: block; margin-bottom: 6px; font-weight: 500; }
+    .employment-form input, .employment-form textarea {
+      width: 100%; padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc; border-radius: 8px;
+      font-size: 15px;
+    }
+    .employment-form button {
+      width: 100%; background: #2d6a4f; color: white;
+      padding: 14px; border: none;
+      font-size: 15px; border-radius: 8px;
+      cursor: pointer; transition: background 0.3s;
+    }
+    .employment-form button:hover { background: #0a0a23; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0a0a23; color: #fff;
+      text-align: center; padding: 25px;
+      margin-top: 40px; font-size: 14px;
+      position: relative;
+    }
+    footer span { color: gold; font-weight: bold; }
+    footer::after {
+      content: "🇳🇬"; 
+      position: absolute; right: 20px; top: 20px;
+      font-size: 20px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav-container { flex-direction: column; gap: 10px; }
+      nav ul { flex-wrap: wrap; justify-content: center; }
+      #hero h1 { font-size: 38px; }
+      #hero p { font-size: 17px; }
+    }
+    @media (max-width: 600px) {
+      .nav-container { padding: 12px 0; }
+      .service-cards { grid-template-columns: 1fr; }
+      #hero h1 { font-size: 28px; }
+      #hero p { font-size: 15px; }
+    }
+/* ===== LOGISTICS ===== */
+#logistics {
+  background: #eef3ff;
+  padding: 90px 20px;
+  text-align: center;
+}
+#logistics h2 {
+  font-size: 34px;
+  margin-bottom: 15px;
+  color: #2d6a4f;
+}
+#logistics p {
+  color: #444;
+  max-width: 650px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+.logistics-container {
+  max-width: 900px;
+  margin: auto;
+}
+.logistics-container img {
+  width: 80%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform 0.4s;
+}
+.logistics-container img:hover {
+  transform: scale(1.03);
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">IFEANYICHUKWU FARM LTD</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#employment">Employment</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="hero">
+  <div>
+    <h1>Presidential Standard Farming</h1>
+    <p>Supplying Nigeria with premium cows and goats — trusted by families, businesses, and government institutions nationwide.</p>
+    <a href="#services" class="btn">Explore Our Services</a>
+  </div>
+</section>
+
+<section id="services">
+  <h2>Our Premium Services</h2>
+  <p>Providing healthy livestock with integrity, quality, and excellence.</p>
+  <div class="service-cards">
+    <div class="card">
+      <img src="./ChatGPT Image Sep 5, 2025, 08_59_32 AM.png" alt="Big Cow">
+      <h3>Big Sized Cows</h3>
+      <p>Strong and healthy cows for state events, high-profile ceremonies, and large-scale buyers.</p>
+      <a href="big.html" class="btn">Buy Now</a>
+    </div>
+    <div class="card">
+      <img src="./ChatGPT Image Sep 5, 2025, 08_53_39 AM.png" alt="Medium Cow">
+      <h3>Medium Sized Cows</h3>
+      <p>Perfect balance of size and affordability — ideal for restaurants and family occasions.</p>
+      <a href="medium.html" class="btn">Buy Now</a>
+    </div>
+    <div class="card">
+      <img src="./ChatGPT Image Sep 5, 2025, 09_05_26 AM.png" alt="Small Cow">
+      <h3>Small Sized Cows</h3>
+      <p>Budget-friendly, healthy cows for small gatherings and individuals.</p>
+      <a href="small.html" class="btn">Buy Now</a>
+    </div>
+    <div class="card">
+      <img src="48b7dd84-20d5-4460-b1f3-71e008b4dfab.png" alt="Small Goat">
+      <h3>Different Sized Goats</h3>
+      <p>Affordable goats raised in safe, clean environments for families and local buyers.</p>
+      <a href="goat.html" class="btn">Buy Now</a>
+    </div>
+  </div>
+</section>
+
+<section id="logistics">
+  <h2>Our Livestock Logistics</h2>
+  <p>We ensure safe, professional, and hygienic delivery of cows and goats across Nigeria using trusted vehicles.</p>
+  <div class="logistics-container">
+    <img src="./ChatGPT Image Sep 24, 2025, 11_19_01 PM.png" alt="Livestock Transport" class="car">
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>Reach Out to Us</h3>
+      <p><strong>📍 Address:</strong> Ezinano, Agulu, Anambra State, Nigeria</p>
+      <p><strong>📞 Phone:</strong> +234 801 234 5678</p>
+      <p><strong>✉️ Email:</strong> info@ifeanyichukwufarm.com</p>
+      <iframe 
+        src="https://www.google.com/maps?q=Ezinano%20Agulu%20Anambra%20State%20Nigeria&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="220"
+        style="border:0; border-radius:10px;"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+    <form class="contact-form" action="contact.php" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<section id="employment">
+  <h2>Careers at IFEANYICHUKWU FARM LTD</h2>
+  <p>We are building Nigeria’s future in agriculture. Join our mission to set new standards of excellence.</p>
+  <form class="employment-form" action="register.php" method="POST" enctype="multipart/form-data">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+    
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    
+    <label for="cv">Upload CV</label>
+    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+    
+    <label for="message">Why do you want to work with us?</label>
+    <textarea id="message" name="message" rows="4" placeholder="Your motivation..." required></textarea>
+    
+    <button type="submit">Apply Now</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; <span><?php echo date("Y"); ?></span> IFEANYICHUKWU FARM LTD | Ezinano, Agulu, Anambra State, Nigeria</p>
+</footer>
+
+</body>
+</html>
